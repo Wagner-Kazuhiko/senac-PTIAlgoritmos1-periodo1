@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O uso dos algoritmos e da programação nas tarefas do cotidiano</title>
+</head>
+<body>
+    <header>
+        <h1>Qual combustível compensa mais?</h1>
+    </header>
+    <main>
+        <p>
+            <button onclick="clicar()">Clique aqui</button>
+        </p>
+        <p>Clique no botão acima para verificar qual combustível compensa mais</p>
+        <div class="resultado"></div>
+    </main>
+
+    <script>
+        function clicar() {
+            
+            reiniciar = prompt('Deseja iniciar?')
+
+            while (reiniciar === "sim") {
+                let gasolina = prompt('Digite o valor da gasolina:')
+                let alcool = prompt('Digite o valor do álcool:')
+                let relacaoConsumo = alcool / gasolina
+                gasolina = parseFloat(gasolina)
+                alcool = parseFloat(alcool)
+                let resultado = document.querySelector('.resultado')
+
+                if (relacaoConsumo > 0.7) {
+                    return resultado.innerHTML += `<p>Com o valor do álcool a R$ ${alcool}, vale mais a pena comprar gasolina a R$ ${gasolina}.</p>`
+                }
+
+                else if (relacaoConsumo > 0.7) {
+                    return resultado.innerHTML += `<p>Com o valor da gasolina a R$ ${gasolina}, vale mais a pena comprar álcool a R$ ${alcool}.</p>`
+                }
+
+                else if (relacaoConsumo === 0.7) {
+                    return resultado.innerHTML += `<p>Com o valor do álcool a R$ ${alcool} e a gasolina a R$ ${gasolina}. Tanto faz com qual irá abastecer.</p>`
+                }
+
+                reiniciar = prompt('Para realizar o cálculo novamente escreva sim')
+
+            }
+
+        }
+
+    </script>
+    
+</body>
+</html>
